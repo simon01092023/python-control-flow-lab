@@ -65,9 +65,13 @@ else:
 # Use the int() function to convert the string returned from input() into an integer
 # Start with an if that checks if the age is less than 3
 
+dog_age = int(input("Input a dog's age: "))
+if dog_age < 3:
+    dog_years = dog_age * 10
+else:
+    dog_years = 20 + (dog_age - 2) * 7
 
-
-
+print(f"The dog's age in dog years is {dog_years}")
 
 # exercise-04 What kind of Triangle?
 
@@ -84,6 +88,19 @@ else:
 # 3. Print a message such as:
 #      - A triangle with sides of <a>, <b> & <c> is a <type of triangle> triangle
 
+print("Enter the lengths of three sides of a triangle:")
+a = float(input("a: "))
+b = float(input("b: "))
+c = float(input("c: "))
+
+if a == b == c:
+    triangle_type = "equilateral"
+elif a != b and b != c and c != a:
+    triangle_type = "scalene"
+else:
+    triangle_type = "isosceles"
+
+print(f"A triangle with sides of {a}, {b} & {c} is a {triangle_type} triangle.")
 
 
 
@@ -107,8 +124,13 @@ else:
 # Use a while loop with a looping variable, or look into Python ranges, e.g.:
 #   for n in range(50):
 
+# Initialize the first two terms of the Fibonacci sequence
+a, b = 0, 1
 
-
+# Print the first 50 terms of the Fibonacci sequence
+for term in range(50):
+    print(f"term: {term} / number: {a}")
+    a, b = b, a + b
 
 
 # exercise-06 What's the Season?
@@ -132,6 +154,26 @@ else:
 #
 # After setting the likely season, you can use another if...elif...else statement to "adjust" if
 # the day number falls within a certain range.
+# Prompt the user to enter the month and day
+
+month = input("Enter the month of the year (Jan - Dec): ")
+day = int(input("Enter the day of the month: "))
+
+# dictionary to map months to numbers for easier comparison
+month_numbers = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
+month_number = month_numbers[month]
+
+# Determine the season based on the month and day
+if (month_number < 3) or (month_number == 3 and day < 20) or (month_number == 12 and day >= 21):
+    season = "Winter"
+elif (month_number < 6) or (month_number == 6 and day < 21):
+    season = "Spring"
+elif (month_number < 9) or (month_number == 9 and day < 22):
+    season = "Summer"
+else:
+    season = "Fall"
+
+print(f"{month} {day} is in {season}")
 
 
 
