@@ -156,24 +156,47 @@ for term in range(50):
 # the day number falls within a certain range.
 # Prompt the user to enter the month and day
 
-month = input("Enter the month of the year (Jan - Dec): ")
-day = int(input("Enter the day of the month: "))
+# month = input("Enter the month of the year (Jan - Dec): ")
+# day = int(input("Enter the day of the month: "))
 
-# dictionary to map months to numbers for easier comparison
-month_numbers = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
-month_number = month_numbers[month]
+# # dictionary to map months to numbers for easier comparison
+# month_numbers = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
+# month_number = month_numbers[month]
 
-# Determine the season based on the month and day
-if (month_number < 3) or (month_number == 3 and day < 20) or (month_number == 12 and day >= 21):
-    season = "Winter"
-elif (month_number < 6) or (month_number == 6 and day < 21):
-    season = "Spring"
-elif (month_number < 9) or (month_number == 9 and day < 22):
-    season = "Summer"
+# # determine season based on the month
+# if month_number < 3 or month_number == 12:
+#     season = "Winter"
+# elif month_number < 6:
+#     season = "Spring"
+# elif month_number < 9:
+#     season = "Summer"
+# else:
+#     season = "Fall"
+
+# # adjust the season based on the day of the month
+# if (month_number == 3 and day >= 20) or (month_number == 6 and day >= 21) or (month_number == 9 and day >= 22) or (month_number == 12 and day >= 21):
+#     season = "Spring" if season == "Winter" else "Summer" if season == "Spring" else "Fall" if season == "Summer" else "Winter"
+
+# print(f"{month} {day} is in {season}")
+
+mo = input('Enter the month of the season (Jan - Dec): ')
+day = int(input('Enter the day of the month: '))
+if mo in ('Jan', 'Feb', 'Mar'):
+  season = 'Winter'
+elif mo in ('Apr', 'May', 'Jun'):
+  season = 'Spring'
+elif mo in ('Jul', 'Aug', 'Sep'):
+  season = 'Summer'
 else:
-    season = "Fall"
-
-print(f"{month} {day} is in {season}")
-
+  season = 'Fall'
+if mo == 'Mar' and day > 19:
+  season = 'Spring'
+elif mo == 'Jun' and day > 20:
+  season = 'Summer'
+elif mo == 'Sep' and day > 21:
+  season = 'Fall'
+elif mo == 'Dec' and day > 20:
+  season = 'Winter'
+print(f'{mo} {day} is in {season}')
 
 
